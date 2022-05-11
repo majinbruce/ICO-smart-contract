@@ -5,15 +5,16 @@ describe("Token Contract", function () {
   let Token;
   let MyToken;
   let owner;
-  let initialSupply = BigNumber.from(1000000000).mul(BigNumber.from(10).pow(9));
+  let totalSupply = BigNumber.from(1000000000).mul(BigNumber.from(10).pow(9));
+
 
   beforeEach(async function () {
     Token = await ethers.getContractFactory("MyToken");
     [owner] = await ethers.getSigners();
-    MyToken = await Token.deploy(initialSupply);
+    MyToken = await Token.deploy(totalSupply);
   });
 
-  describe("Deployment", function () {
+  describe("MyToken Deployment", function () {
     it("Should set the right owner", async function () {
       expect(await MyToken.owner()).to.equal(owner.address);
     });
