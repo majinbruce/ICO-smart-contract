@@ -71,16 +71,18 @@ contract MyTokenCrowdsale is Crowdsale {
             stageTokens[preSale] = stageTokens[preSale].sub(tokenAmount);
 
             if (preSaleQty == 0) {
-                currentStage = 1;
+                contractStage = 1;
             }
-        } else if (currentStage == 1) {
-            seedSaleQty = seedSaleQty.sub(tokenAmount);
+        } else if (contractStage == 1) {
+            require(tokenAmount < stageTokens[seedSale] && tokenAmount != 0);
+            stageTokens[seedSale] = stageTokens[seedSale].sub(tokenAmount);
 
             if (seedSaleQty == 0) {
-                currentStage = 2;
+                contractStage = 2;
             }
-        } else if (currentStage == 2) {
-            publicSaleQty = publicSaleQty.sub(tokenAmount);
+        } else if (contractStage == 2) {
+            require(tokenAmount < stageTokens[publicSale] && tokenAmount != 0);
+            stageTokens[publicSale] = stageTokens[publicSale].sub(tokenAmount);
         }
 
         super._processPurchase(beneficiary, tokenAmount);
