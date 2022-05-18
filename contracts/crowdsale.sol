@@ -82,7 +82,7 @@ contract Crowdsale is Context, ReentrancyGuard {
      * of 2300, which is not enough to call buyTokens. Consider calling
      * buyTokens directly when purchasing tokens from a contract.
      */
-     receive() external payable {
+    receive() external payable {
         buyTokens(_msgSender());
     }
 
@@ -151,6 +151,7 @@ contract Crowdsale is Context, ReentrancyGuard {
     function _preValidatePurchase(address beneficiary, uint256 weiAmount)
         internal
         view
+        virtual
     {
         require(
             beneficiary != address(0),
@@ -169,6 +170,7 @@ contract Crowdsale is Context, ReentrancyGuard {
     function _postValidatePurchase(address beneficiary, uint256 weiAmount)
         internal
         view
+        virtual
     {
         // solhint-disable-previous-line no-empty-blocks
     }
@@ -179,7 +181,10 @@ contract Crowdsale is Context, ReentrancyGuard {
      * @param beneficiary Address performing the token purchase
      * @param tokenAmount Number of tokens to be emitted
      */
-    function _deliverTokens(address beneficiary, uint256 tokenAmount) internal {
+    function _deliverTokens(address beneficiary, uint256 tokenAmount)
+        internal
+        virtual
+    {
         _token.safeTransfer(beneficiary, tokenAmount);
     }
 
@@ -191,6 +196,7 @@ contract Crowdsale is Context, ReentrancyGuard {
      */
     function _processPurchase(address beneficiary, uint256 tokenAmount)
         internal
+        virtual
     {
         _deliverTokens(beneficiary, tokenAmount);
     }
@@ -203,6 +209,7 @@ contract Crowdsale is Context, ReentrancyGuard {
      */
     function _updatePurchasingState(address beneficiary, uint256 weiAmount)
         internal
+        virtual
     {
         // solhint-disable-previous-line no-empty-blocks
     }
@@ -215,6 +222,7 @@ contract Crowdsale is Context, ReentrancyGuard {
     function _getTokenAmount(uint256 weiAmount)
         internal
         view
+        virtual
         returns (uint256)
     {
         return weiAmount.mul(_rate);
