@@ -35,9 +35,6 @@ contract MyTokenCrowdsale is Crowdsale {
         stageTokens[publicSale] = publicSaleQty;
     }
 
-    //this mapping tracs the rate per stage
-    mapping(uint256 => uint256) private stageRate;
-
     function setStageRateMapping() private {
         stageRate[preSale] = preSaleRate;
         stageRate[seedSale] = seedSaleRate;
