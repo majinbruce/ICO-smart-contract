@@ -9,7 +9,7 @@ contract MyToken is ERC20, Ownable {
         _mint(owner(), totalSupply);
     }
 
-    function decimals() public pure returns (uint8) {
+    function decimals() public view virtual override returns (uint8) {
         return 9;
     }
 }
