@@ -13,20 +13,20 @@ contract MyTokenCrowdsale is Crowdsale {
         setStageTokensMapping();
     }
 
-    uint256 preSaleQty = 30000000 * 10**9;
-    uint256 seedSaleQty = 50000000 * 10**9;
-    uint256 publicSaleQty = 20000000 * 10**9;
+    uint256 public preSaleQty = 30000000 * 10**9;
+    uint256 public seedSaleQty = 50000000 * 10**9;
+    uint256 public publicSaleQty = 20000000 * 10**9;
 
     //
 
-    uint256 preSaleRate = 22666;
+    uint256 preSaleRate = 16667;
     uint256 seedSaleRate = 13600;
     uint256 publicSaleRate = 3400;
 
     // crowdsale stages
-    uint256 preSale = 0;
-    uint256 seedSale = 1;
-    uint256 publicSale = 2;
+    uint256 public preSale = 0;
+    uint256 public seedSale = 1;
+    uint256 public publicSale = 2;
 
     //this mapping tracs the amount of tokens available per stage
     mapping(uint256 => uint256) public stageTokens;
@@ -54,11 +54,11 @@ contract MyTokenCrowdsale is Crowdsale {
         returns (uint256)
     {
         if (contractStage == preSale) {
-            return (weiAmount.mul(preSaleRate));
+            return (weiAmount.mul(preSaleRate).div(10**9));
         } else if (contractStage == seedSale) {
-            return (weiAmount.mul(seedSaleRate));
+            return (weiAmount.mul(seedSaleRate).div(10**9));
         } else {
-            return (weiAmount.mul(publicSaleRate));
+            return (weiAmount.mul(publicSaleRate).div(10**9));
         }
     }
 
