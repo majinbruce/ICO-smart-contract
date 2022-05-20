@@ -3,13 +3,13 @@
 ## MyToken.sol contarct
 This contract deploys an ERC20 token with the following details.
 
-* Name: "MyToken"
+* **Name**: "MyToken"
 
-* Symbol: "MTN"
+* **Symbol**: "MTN"
 
-* Decimals: 9 (usually a token has 18 decimal places)
+* **Decimals**: 9 (usually a token has 18 decimal places)
 
-* Total Supply: 100 million => 10**8 => 100000000
+* **Total Supply**: 100 million => 10**8 => 100000000
 
 * Contract deployed on ropsten test network at:
 
@@ -28,22 +28,24 @@ This contract sells the tokens received in three different stages at different p
 SaleStages: PreSale, SeedSale, FinalSale
 
 ### Tokens available in different stages:-
-* PreSale: 30 million tokens
-* SeedSale: 50 million tokens
-* FinalSale: 20 million tokens
+* **PreSale**: 30 million tokens
+* **SeedSale**: 50 million tokens
+* **PublicSale** 20 million tokens
 
 ### Token price for different stages:-
-* PreSale: 15 cents/ $0.15 per token
-* SeedSale: 25 cents/ $0.25 per token
-* FinalSale: 150 cents/ $1 per token
+* **PreSale**: 15 cents/ $0.15 per token
+* **SeedSale**: 25 cents/ $0.25 per token
+* **PublicSale** 150 cents/ $1 per token
+
 
 ### Rate Calculation Formula:-
-> rate= (currentPriceOfEther/PriceOfTokenPerStage*10^9)
+> **Rate**= (currentPriceOfEther/PriceOfTokenPerStage*10^9) <br>
+> https://docs.openzeppelin.com/contracts/2.x/crowdsales
 
 ### rate for different stages:-
 assuming the current price of ether to be $2500
 
-* PreSaleRate: 
-* SeedSaleRate: 
-* FinalSaleRate: 
+* **PreSaleRate**: 16,667/10^9
+* **SeedSaleRate**: 10,100/10^9
+* **FinalSaleRate**: 2,500/10^9
 
