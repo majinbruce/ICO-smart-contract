@@ -49,3 +49,5 @@ assuming the current price of ether to be $2500
 * **SeedSaleRate**: 10,100/10^9
 * **FinalSaleRate**: 2,500/10^9
 
+### verified at:-
+> https://goerli.etherscan.io/address/0x20a6F1D5d37a401841E633678E42b7B78acB1097#code
