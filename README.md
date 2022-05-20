@@ -13,7 +13,7 @@ This contract deploys an ERC20 token with the following details.
 
 * Contract deployed on ropsten test network at:
 
-> 0xB8024F57322A00D55269CEa0D5B1Aee4Da9979F2 
+> 0x951FC3ee0c458820C0B73808861d0b6A1159603F
 
 ## crowdSale.sol contarct
 This contract was took from openzepplin, which handles the checks,events & token transfer
@@ -22,7 +22,7 @@ This contract was took from openzepplin, which handles the checks,events & token
 Inherits from crwdSale.sol, has a mapping that manages amount of tokens available per stage
 
 * Contract deployed on rinkeby test network at:
-> 0xf22b13F41FF82B22c7b9770Eac0D23904D57B333
+> 0x6Af4890E42Be6246e6B5fF1ED96933628AE60897
 
 This contract sells the tokens received in three different stages at different prices.
 SaleStages: PreSale, SeedSale, FinalSale
