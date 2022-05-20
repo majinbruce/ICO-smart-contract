@@ -36,3 +36,14 @@ SaleStages: PreSale, SeedSale, FinalSale
 * PreSale: 15 cents/ $0.15 per token
 * SeedSale: 25 cents/ $0.25 per token
 * FinalSale: 150 cents/ $1 per token
+
+### Rate Calculation Formula:-
+> rate= (currentPriceOfEther/PriceOfTokenPerStage*10^9)
+
+### rate for different stages:-
+assuming the current price of ether to be $2500
+
+* PreSaleRate: 
+* SeedSaleRate: 
+* FinalSaleRate: 
+
