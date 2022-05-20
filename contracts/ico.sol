@@ -9,7 +9,9 @@ contract MyTokenCrowdsale is Crowdsale {
         uint256 rate,
         address payable wallet,
         IERC20 token
-    ) public Crowdsale(rate, wallet, token) {}
+    ) public Crowdsale(rate, wallet, token) {
+        setStageTokensMapping();
+    }
 
     uint256 preSaleQty = 30000000 * 10**9;
     uint256 seedSaleQty = 50000000 * 10**9;
@@ -27,12 +29,19 @@ contract MyTokenCrowdsale is Crowdsale {
     uint256 publicSale = 2;
 
     //this mapping tracs the amount of tokens available per stage
-    mapping(uint256 => uint256) private stageTokens;
+    mapping(uint256 => uint256) public stageTokens;
 
     function setStageTokensMapping() private {
         stageTokens[preSale] = preSaleQty;
         stageTokens[seedSale] = seedSaleQty;
         stageTokens[publicSale] = publicSaleQty;
+    }
+
+    function setContractStage(uint256 setContractstage)
+        private
+        returns (uint256)
+    {
+        return contractStage = setContractstage;
     }
 
     // function getRate() private view returns () {}
@@ -61,15 +70,15 @@ contract MyTokenCrowdsale is Crowdsale {
             require(tokenAmount < stageTokens[preSale] && tokenAmount != 0);
             stageTokens[preSale] = stageTokens[preSale].sub(tokenAmount);
 
-            if (preSaleQty == 0) {
-                contractStage = 1;
+            if (stageTokens[preSale] == 0) {
+                setContractStage(1);
             }
         } else if (contractStage == 1) {
             require(tokenAmount < stageTokens[seedSale] && tokenAmount != 0);
             stageTokens[seedSale] = stageTokens[seedSale].sub(tokenAmount);
 
-            if (seedSaleQty == 0) {
-                contractStage = 2;
+            if (stageTokens[seedSale] == 0) {
+                setContractStage(2);
             }
         } else if (contractStage == 2) {
             require(tokenAmount < stageTokens[publicSale] && tokenAmount != 0);
