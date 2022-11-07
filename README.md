@@ -25,7 +25,7 @@ Inherits from crwdSale.sol, has a mapping that manages amount of tokens availabl
 > 0x6Af4890E42Be6246e6B5fF1ED96933628AE60897
 
 This contract sells the tokens received in three different stages at different prices.
-SaleStages: PreSale, SeedSale, FinalSale
+SaleStages: PreSale, SeedSale, PublicSale
 
 ### Tokens available in different stages:-
 * **PreSale**: 30 million tokens
