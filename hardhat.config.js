@@ -20,6 +20,8 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
  */
 
 const { RINKEBY_PRIVATE_KEY, ALCHEMY_API_KEY, ETHERSCAN_API_KEY } = process.env;
+
+
 module.exports = {
   solidity: {
     compilers: [
